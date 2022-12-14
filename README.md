@@ -1,2 +1,2 @@
 # IntegralSolver
-calculator to solve definite and indefinite integrals.
+Calculator to solve definite and indefinite integrals.
