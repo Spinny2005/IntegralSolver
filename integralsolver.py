@@ -19,3 +19,4 @@ while True:
             a, b = float(a), float(b)
             definite = sympy.integrate(f, (x, a, b))
             print(f"Definite integral of {f} from {a} to {b}: {definite}")
+    print("")
