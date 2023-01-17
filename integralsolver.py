@@ -1,36 +1,21 @@
-
-import numpy as np
-import scipy.integrate as integrate
-import matplotlib.pyplot as plt
-import sympy as sp
+import sympy
 
 while True:
-    print("")
+    x = sympy.Symbol('x')
 
-    def integral_approximation(f, a, b):
-        return (int(b)-int(a))*np.mean(f)
+    f = input("Enter a function in terms of x: ")
+    f = sympy.sympify(f)
 
-    def f(x):
-        func = input("Function: ")
-        return str(func)
+    defOrIndef = input("Solve for definite integral (y/n): ")
+    if (defOrIndef == "n"):
+        indefinite = sympy.integrate(f, x)
+        print(f"Indefinite integral of {f}: {indefinite} + C")
 
-    print("Type u for indefinite integral")
-    a = input("Lower Bound: ")
-    if (a != "u"):
-        b = input("Upper Bound: ")
-        x_range = np.arange(int(a),int(b)+0.0001,.0001)
-        fx = f(x_range)
-        approx = integral_approximation(str(fx),a,b)
-        print(approx)
     else:
-        func = input("Function: ")
-        respect = input("Integrate with respect to: ")
-        if (respect != None):
-            respect=sp.Symbol(respect)
-            result = sp.integrate(func, respect)
-            if (result != None):
-                print(result)
-            else:
-                print("Unsolveable Try Again.")
-        else:
-            print("Unsolveable Try Again.")
+        a = input("Enter the lower bound: ")
+        b = input("Enter the upper bound: ")
+
+        if a and b:
+            a, b = float(a), float(b)
+            definite = sympy.integrate(f, (x, a, b))
+            print(f"Definite integral of {f} from {a} to {b}: {definite}")
