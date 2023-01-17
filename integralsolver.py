@@ -9,7 +9,10 @@ while True:
     defOrIndef = input("Solve for definite integral (y/n): ")
     if (defOrIndef == "n"):
         indefinite = sympy.integrate(f, x)
+        indefinite = str(indefinite)
+        indefinite = indefinite.replace('**', '^')
         print(f"Indefinite integral of {f}: {indefinite} + C")
+
 
     else:
         a = input("Enter the lower bound: ")
